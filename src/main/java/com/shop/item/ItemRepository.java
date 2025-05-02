@@ -1,6 +1,8 @@
 package com.shop.item;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -15,5 +17,13 @@ public interface ItemRepository extends JpaRepository<Item,Long> {
     // 내림차순 (Desc) 오름차순(Asc)
     List<Item> findByPriceLessThanOrderByPriceDesc(Integer price);
     List<Item> findByPriceLessThanOrderByPriceAsc(Integer price);
+    // @Query 를 사용하여 커스터마이징
+    @Query("select i from Item i where i.itemDetail like " +
+            "%:itemDetail% order by i.price desc")
+    List<Item> findByItemDetail(@Param("itemDetail") String itemDetail);
+    // @Query-nativeQuery
+    @Query(value = "select * from item i where i.item_detail like " +
+            "%:itemDetail% order by i.price desc", nativeQuery = true)
+    List<Item> findByItemDetailByNative(@Param("itemDetail") String itemDetail);
 
 }
