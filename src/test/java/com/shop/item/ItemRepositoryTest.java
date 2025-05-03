@@ -124,7 +124,7 @@ class ItemRepositoryTest {
     @PersistenceContext
     EntityManager em;
     @Test
-    @DisplayName("Querydsl 조회 테스트1")
+    @DisplayName("Querydsl 조회 테스트1 ")
     public void queryDslTest(){
         createItemList();
         JPAQueryFactory queryFactory = new JPAQueryFactory(em);

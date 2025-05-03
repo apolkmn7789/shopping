@@ -91,7 +91,7 @@
 
 	<build>
 		<plugins>
-			<!-- 기본 컴파일 플러그인 -->
+			<!-- 기본 컴파일 플러그인  -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
