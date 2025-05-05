@@ -1,7 +1,6 @@
-package com.shop.service.member;
+package com.shop.member;
 
-import com.shop.domain.member.Member;
-import com.shop.repository.member.MemberRepository;
+import com.shop.domain.Member;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    // 회원 저장
+    // 회원 가입
     public Member saveMember(Member member){
         validateDuplicateMember(member);
         return memberRepository.save(member);

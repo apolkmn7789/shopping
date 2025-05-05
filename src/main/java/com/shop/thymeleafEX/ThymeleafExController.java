@@ -1,6 +1,6 @@
 package com.shop.thymeleafEX;
 
-import com.shop.dto.item.ItemDto;
+import com.shop.item.dto.ItemDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

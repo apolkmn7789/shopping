@@ -1,6 +1,7 @@
-package com.shop.domain.item;
+package com.shop.domain;
 
 
+import com.shop.item.ItemSellStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

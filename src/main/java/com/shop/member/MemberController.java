@@ -1,7 +1,6 @@
-package com.shop.controller;
+package com.shop.member;
 
-import com.shop.dto.member.MemberFormDto;
-import com.shop.service.member.MemberService;
+import com.shop.member.dto.MemberFormDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +14,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    // 회원 가입 url
     @GetMapping(value = "/new")
     public String memberForm(Model model){
         model.addAttribute("memberFormDto",new MemberFormDto());

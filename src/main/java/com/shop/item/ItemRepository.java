@@ -1,6 +1,6 @@
-package com.shop.repository.item;
+package com.shop.item;
 
-import com.shop.domain.item.Item;
+import com.shop.domain.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;

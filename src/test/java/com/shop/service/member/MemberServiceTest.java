@@ -1,9 +1,8 @@
 package com.shop.service.member;
 
-import com.shop.domain.member.Member;
-import com.shop.dto.member.MemberFormDto;
-import com.shop.repository.member.MemberRepository;
-import groovy.transform.AutoImplement;
+import com.shop.domain.Member;
+import com.shop.member.dto.MemberFormDto;
+import com.shop.member.MemberService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

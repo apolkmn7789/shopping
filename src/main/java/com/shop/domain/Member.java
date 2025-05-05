@@ -1,7 +1,7 @@
-package com.shop.domain.member;
+package com.shop.domain;
 
-import com.shop.dto.member.MemberFormDto;
-import com.shop.dto.member.Role;
+import com.shop.member.dto.MemberFormDto;
+import com.shop.member.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

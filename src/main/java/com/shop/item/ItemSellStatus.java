@@ -1,4 +1,4 @@
-package com.shop.domain.item;
+package com.shop.item;
 
 public enum ItemSellStatus {
     SELL, SOLD_OUT
