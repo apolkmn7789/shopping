@@ -1,7 +1,6 @@
 package com.shop.thymeleafEX;
 
-import com.shop.item.ItemDto;
-import lombok.Getter;
+import com.shop.dto.item.ItemDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,5 +49,9 @@ public class ThymeleafExController {
 
         model.addAttribute("itemDtoList", itemDtoList);
         return "thymeleafEx/thymeleafEx03";
+    }
+    @GetMapping(value = "/ex07")
+    public String thymeleafExample07(){
+        return "thymeleafEx/thymeleafEx07";
     }
 }

@@ -1,4 +1,4 @@
-package com.shop.item;
+package com.shop.domain.item;
 
 
 import jakarta.persistence.*;
