@@ -27,8 +27,8 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutUrl("/members/logout")
                         .logoutSuccessUrl("/")
-                )
-                .csrf(csrf -> csrf.disable()); // 개발단계에서는 CSRF 꺼두는 게 편함
+                );
+//                .csrf(csrf -> csrf.disable()); // 개발단계에서는 CSRF 꺼두는 게 편함
 
         return http.build();
     }
