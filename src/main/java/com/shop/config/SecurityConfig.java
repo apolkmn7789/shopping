@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,9 +24,14 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
+                        // 정적 리소스 허용 (css, js, img, 등)
+                        .requestMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                        // item과 images URL도 모두 허용
+                        .requestMatchers("/item/**", "/images/**").permitAll()
+                        // 어드민 페이지는 ADMIN만 허용
                         .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest()
-                        .permitAll()
+                        // 그 외 나머지는 모두 허용
+                        .anyRequest().permitAll()
                 )
                 .formLogin(form -> form
                         .loginPage("/members/login")
@@ -38,19 +42,20 @@ public class SecurityConfig {
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
                         .logoutSuccessUrl("/")
-                );
+                )
+//                .exceptionHandling(ex -> ex
+//                        .accessDeniedPage("/members/denied") // 접근 거부시 이동할 페이지
+//                )
+        ;
 
         return http.build();
     }
 
-    // 비밀번호 암호화
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // AuthenticationManager를 직접 빈으로 등록한다.
-    // → 로그인할 때 AuthenticationManager가 필요하기 때문.
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
